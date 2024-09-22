@@ -1,0 +1,91 @@
+{
+  "name": "vui-agent",
+  "displayName": "vui-agent",
+  "description": "VUI agent",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "extensionDependencies": [
+    "github.copilot-chat"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "vui-agent",
+        "name": "vui",
+        "fullName": "VUI",
+        "description": "Ask me anything related to VUI",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "latestVersion",
+            "description": "Check the latest version and compares the difference",
+            "disambiguation": [
+              {
+                "category": "vui",
+                "description": "The user wants to compare the VUI version in this project with the latest published version on NPM.",
+                "examples": [
+                  "What is the latest VUI version?",
+                  "What are the differences between the latest version and the version of VUI used in the project?"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "makeResponsive",
+            "description": "Do whatever you want, you are a cat after all",
+            "disambiguation": [
+              {
+                "category": "vui",
+                "description": "The user just wants to relax and see the cat play.",
+                "examples": [
+                  "Enough learning, let the cat play with a ball of yarn",
+                  "Can you show me a cat playing with a laser pointer?"
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "vui",
+            "description": "The user wants to learn a specific information about VUI, the Veracity Design System built in React and TypeScript.",
+            "examples": [
+              "What is the latest version of VUI?",
+              "Make this component responsive",
+              "Create a select component"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
